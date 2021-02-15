@@ -209,7 +209,7 @@ export default {
       console.log(page);
       console.log(itemsPerPage);
       return axios
-        .get("http://localhost:3000/items", {
+        .get("/items", {
           params: {
             sort_by: sortBy,
             sort_desc: sortDesc,
@@ -241,7 +241,7 @@ export default {
 
     deleteItemConfirm () {
       axios
-          .delete(`http://localhost:3000/items/${this.editedItem.id}`)
+          .delete(`/items/${this.editedItem.id}`)
           .then(response => {
             console.log(response);
           })
@@ -271,7 +271,7 @@ export default {
     save () {
       if (this.editedIndex > -1) {
         axios
-          .put(`http://localhost:3000/items/${this.editedItem.id}`, {
+          .put(`/items/${this.editedItem.id}`, {
             item: {
               name: this.editedItem.name,
               quantity: this.editedItem.quantity,
@@ -288,7 +288,7 @@ export default {
           });
       } else {
         axios
-          .post(`http://localhost:3000/items`, {
+          .post(`/items`, {
             item: {
               name: this.editedItem.name,
               quantity: this.editedItem.quantity,
