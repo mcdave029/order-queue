@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def index
-    Rails.logger.debug params.to_json
     order = ""
     params[:sort_by]&.each_with_index do |sort, index|
       order += sort
